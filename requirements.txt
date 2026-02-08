@@ -1,0 +1,17 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+alembic
+psycopg2-binary
+pydantic
+pydantic-settings
+pydantic[email]
+python-dotenv
+python-dateutil
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
+google-api-python-client
+python-multipart
+apscheduler
+httpx
