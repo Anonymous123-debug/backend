@@ -1,6 +1,22 @@
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+
+# Environments
 .env
+.venv
+env/
 venv/
-.idea/
+
+# IDEs
 .vscode/
+.idea/
+
+# Distribution
+dist/
+build/
+*.egg-info/
+
+# Database
+*.db

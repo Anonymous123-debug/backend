@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 """
 Merged User + UserProfile models.
 
@@ -6,6 +7,8 @@ System B provided: google_refresh_token.
 Merged: google_refresh_token is nullable (not every user links Google).
 """
 
+=======
+>>>>>>> main
 from datetime import datetime
 from typing import Optional, Any
 from sqlalchemy import String, Integer, DateTime, ForeignKey
@@ -13,7 +16,10 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy.dialects.postgresql import JSONB
 from app.db.base import Base
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
 class User(Base):
     __tablename__ = "users"
 
@@ -21,6 +27,7 @@ class User(Base):
     email: Mapped[str] = mapped_column(String, unique=True, index=True, nullable=False)
     username: Mapped[str] = mapped_column(String, unique=True, nullable=False)
     password_hash: Mapped[str] = mapped_column(String, nullable=False)
+<<<<<<< HEAD
     google_refresh_token: Mapped[Optional[str]] = mapped_column(String, nullable=True)  # From System B
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
 
@@ -41,13 +48,23 @@ class User(Base):
         "CalendarSyncState", back_populates="user", uselist=False, cascade="all, delete-orphan"
     )
 
+=======
+    google_refresh_token: Mapped[Optional[str]] = mapped_column(String, nullable=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+
+    profile: Mapped["UserProfile"] = relationship("UserProfile", back_populates="user", uselist=False, cascade="all, delete-orphan")
+>>>>>>> main
 
 class UserProfile(Base):
     __tablename__ = "user_profiles"
 
+<<<<<<< HEAD
     user_id: Mapped[int] = mapped_column(
         ForeignKey("users.id", ondelete="CASCADE"), primary_key=True
     )
+=======
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.id", ondelete="CASCADE"), primary_key=True)
+>>>>>>> main
     full_name: Mapped[Optional[str]] = mapped_column(String, nullable=True)
     major: Mapped[Optional[str]] = mapped_column(String, nullable=True)
     university: Mapped[Optional[str]] = mapped_column(String, nullable=True)
